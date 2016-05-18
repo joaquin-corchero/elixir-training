@@ -1,7 +1,7 @@
 defmodule Cache do
 
-  def init do
-    Agent.start_link(fn -> %{} end)
+  def init(cacheName) do
+    Agent.start_link(fn -> %{} end, name: cacheName)
   end
 
   def all(cache) do
