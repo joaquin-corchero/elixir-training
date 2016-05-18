@@ -18,3 +18,4 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:fibonachi]]
         end
 
+to run it, from command line type iex -S mix and then call Fibonachi.get(number)
