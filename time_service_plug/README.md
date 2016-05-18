@@ -18,3 +18,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:time_service_plug]]
         end
 
+To run it
+        iex -S mix
+
+        run localhost:4000/ on your browser and then localhost:4000/datetime

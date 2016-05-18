@@ -1,10 +1,12 @@
 defmodule TimeServicePlug.Router do
   use Plug.Router
+  alias TimeServicePlug.CurrentDateTime
   plug :match
   plug :dispatch
 
   get "/datetime" do
-    send_resp(conn, 200, "")
+    {:ok, current_date_time } = CurrentDateTime.local |> Poison.encode
+    send_resp(conn, 200, current_date_time)
   end
 
   match _ do
