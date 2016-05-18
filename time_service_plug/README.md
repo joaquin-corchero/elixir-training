@@ -19,6 +19,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         end
 
 To run it
+        get all the dependencies: mix deps.get
         iex -S mix
 
         run localhost:4000/ on your browser and then localhost:4000/datetime
