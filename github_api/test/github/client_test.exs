@@ -1,7 +1,8 @@
 defmodule GithubApi.Github.ClientTest do
   use ExUnit.Case, async: true
   alias GithubApi.Github.Client
-
+  
+  @tag :integration
   test "fetches a user from Github" do
     response = Client.get_user("elixir-lang")
 
