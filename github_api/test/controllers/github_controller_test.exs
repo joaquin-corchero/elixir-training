@@ -23,4 +23,19 @@ defmodule GithubApi.GithubControllerTest do
 
     assert response.resp_body == expected
   end
+
+  test "Get /users/:user/repos responds with 200", %{conn: conn} do
+    conn = conn(:get, "users/elixir-lang/repos")
+    response = GithubApi.Router.call(conn, [])
+
+    assert response.status == 200
+  end
+
+  test "Get /users/:user/repos returns the user in json", %{conn: conn} do
+    conn = conn(:get, "users/elixir-lang/repos")
+    {:ok, expected} = %User{login: "elixir-lang", public_repos: 15} |> Poison.encode
+    #response = GithubApi.Router.call(conn, [])
+
+    #assert response.resp_body == expected
+  end
 end

@@ -8,5 +8,6 @@ defmodule GithubApi.Router do
   scope "/", GithubApi do
     pipe_through :api
     get "/users/:user", GithubController, :user
+    get "/users/:user/repos", GithubController, :repos
   end
 end

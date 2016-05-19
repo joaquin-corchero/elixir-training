@@ -1,6 +1,6 @@
-defmodule GithubApi.Github.TransformTest do
+defmodule GithubApi.Github.Users.TransformTest do
     use ExUnit.Case, async: true
-    alias GithubApi.Github.Transform
+    alias GithubApi.Github.Users.Transform
 
     test "parse the response" do
         fileLocation = "test/sample_data/elixir_user_response.json"

@@ -7,4 +7,11 @@ defmodule GithubApi.Github.HTTPClient do
     response = HTTPotion.get(query_url_for_user, headers: ["User-Agent": "Agent"])
     response.body
   end
+
+  def get_repos(username) do
+    query_url_for_user_repos = "#{@base_url}users/#{username}/repos"
+
+    response = HTTPotion.get(query_url_for_user_repos, headers: ["User-Agent": "Agent"])
+    response.body
+  end
 end

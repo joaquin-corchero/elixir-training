@@ -6,4 +6,7 @@ defmodule GithubApi.Github.Client do
     @client.get_user(user)
   end
 
+  def get_repos(user) do
+    @client.get_repos(user)
+  end
 end
