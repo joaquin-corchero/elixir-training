@@ -5,7 +5,8 @@ defmodule GithubApi.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", GithubApi do
+  scope "/", GithubApi do
     pipe_through :api
+    get "/users/:user", GithubController, :user
   end
 end
