@@ -9,6 +9,8 @@ config :github_api, GithubApi.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :github_api, :github_client, GithubApi.Github.FakeClient
+
 # Configure your database
 config :github_api, GithubApi.Repo,
   adapter: Ecto.Adapters.Postgres,

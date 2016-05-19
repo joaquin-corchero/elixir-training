@@ -1,4 +1,4 @@
-defmodule GithubApi.Github.Client do
+defmodule GithubApi.Github.HTTPClient do
   @base_url "https://api.github.com/"
 
   def get_user(username) do
