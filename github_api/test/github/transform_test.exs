@@ -8,7 +8,7 @@ defmodule GithubApi.Github.TransformTest do
 
         user = Transform.extract_user(content)
 
-        assert user.full_name = "elixir-lang"
-        assert user.public_repos = 14
+        assert user.login == "elixir-lang"
+        assert user.public_repos == 15
     end
 end
