@@ -5,11 +5,12 @@ defmodule GithubApi.GithubController do
   alias GithubApi.Github.Client
   alias GithubApi.Github.Users.Transform
   alias GithubApi.Github.Users.Repository
+  alias GithubApi.Github.CodeRepos.Transform
 
   def user(conn, %{"user" => user}) do
     #IEx.pry
     result = Client.get_user(user)
-            |> Transform.extract_user
+            |> GithubApi.Github.Users.Transform.extract_user
             #|> Repository.save
 
     json conn, result
@@ -18,7 +19,7 @@ defmodule GithubApi.GithubController do
   def repos(conn, %{"user" => user}) do
     #IEx.pry
     result = Client.get_repos(user)
-            #|> Transform.extract_repos
+            |> GithubApi.Github.CodeRepos.Transform.extract_repos
             #|> Repository.save
 
     json conn, result

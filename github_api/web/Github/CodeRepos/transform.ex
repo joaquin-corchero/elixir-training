@@ -1,15 +1,16 @@
 defmodule GithubApi.Github.CodeRepos.Transform do
   alias GithubApi.Github.CodeRepos.CodeRepo
 
-  def extract_repo(raw_response) do
+  def extract_repos(raw_response) do
     raw_response
-    |> convert_keys_to_atoms
-    |> remove_updated_at_key
-    |> convert_map_to_struct
+    |> parse
+    #|> convert_keys_to_atoms
+    #|> remove_updated_at_key
+    #|> convert_map_to_struct
   end
 
   defp parse(response) do
-    Poison.Parser.parse!(response, as: %CodeRepo{})
+    Poison.Parser.parse!(response, as: [%CodeRepo{}])#prsing to array
   end
 
   defp convert_keys_to_atoms(code_repo) do
