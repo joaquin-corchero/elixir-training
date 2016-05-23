@@ -8,6 +8,12 @@ defmodule LargeLines do
   def get_line_length(fileLocation) do
     File.stream!(fileLocation)
     |> Stream.map(fn(x) -> String.replace(x, "\n", "")  end)
-    |> Enum.map(fn(x) -> String.length(x)  end) 
+    |> Enum.map(fn(x) -> String.length(x)  end)
+  end
+
+  def get_longest_line(fileLocation) do
+    File.stream!(fileLocation)
+    |> Stream.map(fn(content) -> String.replace(content, "\n", "") end)
+    |> Enum.max_by(fn(x) -> String.length(x) end) 
   end
 end
