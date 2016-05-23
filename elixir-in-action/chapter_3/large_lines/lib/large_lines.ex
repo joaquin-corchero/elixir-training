@@ -14,6 +14,9 @@ defmodule LargeLines do
   def get_longest_line(fileLocation) do
     File.stream!(fileLocation)
     |> Stream.map(fn(content) -> String.replace(content, "\n", "") end)
-    |> Enum.max_by(fn(x) -> String.length(x) end) 
+    |> Enum.max_by(fn(x) -> String.length(x) end)
+  end
+
+  def get_words_per_line(fileLocation) do
   end
 end
