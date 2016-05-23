@@ -24,6 +24,6 @@ defmodule LargeLinesTest do
 
   test "can get the number of words per line on a file" do
     fileLocation = "test/sample_data/large_lines03.txt"
-    assert LargeLines.get_longest_line(fileLocation) == [1,2,3,4,5,1]
+    assert LargeLines.get_words_per_line(fileLocation) == [1,2,3,4,5,1]
   end
 end
