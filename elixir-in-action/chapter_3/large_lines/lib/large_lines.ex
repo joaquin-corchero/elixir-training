@@ -6,5 +6,8 @@ defmodule LargeLines do
   end
 
   def get_line_length(fileLocation) do
+    File.stream!(fileLocation)
+    |> Stream.map(fn(x) -> String.replace(x, "\n", "")  end)
+    |> Enum.map(fn(x) -> String.length(x)  end) 
   end
 end
