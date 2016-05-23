@@ -1,0 +1,14 @@
+defmodule LargeLinesTest do
+  use ExUnit.Case
+  doctest LargeLines
+
+  test "empty list is returned if no lines larger than 80 chars" do
+    fileLocation = "test/sample_data/large_lines01.txt"
+    assert LargeLines.get_long_lines(fileLocation) == []
+  end
+
+  test "list is returned with the lines larger than 80 chars" do
+    fileLocation = "test/sample_data/large_lines02.txt"
+    assert LargeLines.get_long_lines(fileLocation) == ["0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789A", "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789B", "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789C"]
+  end
+end
