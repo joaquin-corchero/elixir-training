@@ -16,4 +16,9 @@ defmodule LargeLinesTest do
     fileLocation = "test/sample_data/large_lines01.txt"
     assert LargeLines.get_line_length(fileLocation) == [1,2,3,4]
   end
+
+  test "can return the longest line of a file" do
+    fileLocation = "test/sample_data/large_lines01.txt"
+    assert LargeLines.get_longest_line(fileLocation) == "0123"
+  end
 end
