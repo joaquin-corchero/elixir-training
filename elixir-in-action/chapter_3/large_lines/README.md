@@ -18,3 +18,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:large_lines]]
         end
 
+From the book elixir in action.
+
+Tasks from chapter 3
