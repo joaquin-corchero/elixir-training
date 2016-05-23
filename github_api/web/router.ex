@@ -9,5 +9,6 @@ defmodule GithubApi.Router do
     pipe_through :api
     get "/users/:user", GithubController, :user
     get "/users/:user/repos", GithubController, :repos
+    get "/users/:user/repos/languages", GithubController, :repos_languages
   end
 end

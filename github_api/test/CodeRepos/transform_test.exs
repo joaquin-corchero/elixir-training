@@ -10,4 +10,13 @@ defmodule GithubApi.Github.CodeRepos.TransformTest do
 
         assert length(repos) == 15
     end
+
+    test "get the repositories" do
+        fileLocation = "test/sample_data/elixir_user_repos_response.json"
+        {:ok, content} = File.read(fileLocation)
+
+        repos = Transform.extract_repos(content)
+
+        assert List.first(repos).full_name == "elixir-lang/docs"
+    end
 end

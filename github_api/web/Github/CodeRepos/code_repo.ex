@@ -1,7 +1,7 @@
 defmodule GithubApi.Github.CodeRepos.CodeRepo do
 #  use GithubApi.Web, :model
 
-defstruct [:full_name, :html_url, :description]
+defstruct [:full_name, :html_url, :description, :language]
   #@derive {Poison.Encoder, only: [:full_name, :html_url, :description]}#indicates how to encode it
 
   #schema "coderepositories" do

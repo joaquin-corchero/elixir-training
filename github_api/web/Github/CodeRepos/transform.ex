@@ -4,13 +4,15 @@ defmodule GithubApi.Github.CodeRepos.Transform do
   def extract_repos(raw_response) do
     raw_response
     |> parse
-    #|> convert_keys_to_atoms
-    #|> remove_updated_at_key
-    #|> convert_map_to_struct
+    |> Enum.map(fn(x) ->
+                        convert_keys_to_atoms(x)
+                        |> remove_updated_at_key
+                        |> convert_map_to_struct
+                end)
   end
 
   defp parse(response) do
-    Poison.Parser.parse!(response, as: [%CodeRepo{}])#prsing to array
+    Poison.Parser.parse!(response, as: [%CodeRepo{}])#parsing to array
   end
 
   defp convert_keys_to_atoms(code_repo) do
