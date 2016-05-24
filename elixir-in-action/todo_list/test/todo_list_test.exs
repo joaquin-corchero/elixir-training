@@ -10,7 +10,14 @@ defmodule TodoListTest do
     expected = %{{2016, 5, 15} => ["First item"]}
     actual = TodoList.new |>
       TodoList.add({2016, 05, 15}, "First item")
+    assert actual == expected
+  end
 
+  test "Can add an item to the same date" do
+    expected = %{{2016, 5, 15} => ["Second item", "First item"]}
+    actual = TodoList.new |>
+      TodoList.add({2016, 05, 15}, "First item") |>
+      TodoList.add({2016, 05, 15}, "Second item")
     assert actual == expected
   end
 
@@ -34,7 +41,7 @@ defmodule TodoListTest do
   end
 
   test "Can get more than one matching entry by date" do
-    expected = ["First item", "Third item"]
+    expected = ["Third item", "First item"]
     todo_list = TodoList.new |>
       TodoList.add({2016, 05, 15}, "First item") |>
       TodoList.add({2016, 05, 16}, "Second item") |>

@@ -3,11 +3,11 @@ defmodule TodoList do
     Map.new
   end
 
-  def add(todo_list, date, value) do
-    Map.udpate!(todo_list, date, fn(old_value) -> [old_value | value] end)
+  def add(todo_list, key, value) do
+    Map.update(todo_list, key, [value], fn(x)-> [value | x] end )
   end
 
-  def entries(todo_list, date) do
-    Map.get(todo_list, date, [])
+  def entries(todo_list, key) do
+    Map.get(todo_list, key, [])
   end
 end
